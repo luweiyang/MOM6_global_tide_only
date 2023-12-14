@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in {176..396..5}
+    do
+        sed "s/171/$i/g" get_drag_coeff_9by18_5tiles > get_drag_coeff_9by18_5tiles_$i
+        qsub get_drag_coeff_9by18_5tiles_$i
+    done
