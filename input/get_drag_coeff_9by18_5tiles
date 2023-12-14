@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -P nm03
+#PBS -N 10ts_171
+#PBS -q normal 
+#PBS -l ncpus=2
+#PBS -l mem=128GB
+#PBS -l walltime=03:00:00
+#PBS -l wd
+#PBS -l storage=gdata/hh5+gdata/v45+gdata/nm03+gdata/ik11+scratch/nm03
+#PBS -m abe
+#PBS -M luwei.yang@anu.edu.au
+
+
+i=(171)
+((e=$i+4))
+
+while (($i<=$e))
+do
+    echo "$i"
+    python get_drag_coeff_9by18.py $i
+    ((i=$i+1))
+    echo "              "
+done
+
+exit 0
+
