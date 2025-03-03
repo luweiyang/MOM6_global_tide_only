@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in {190..892..9}
+    do
+        sed "s/181/$i/g" get_drag_coeff_SAH_M2_1deg_9tiles > get_drag_coeff_SAH_M2_1deg_9tiles_$i
+        qsub get_drag_coeff_SAH_M2_1deg_9tiles_$i
+    done
